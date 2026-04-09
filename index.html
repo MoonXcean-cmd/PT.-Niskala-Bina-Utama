@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT Niskala Bina Utama</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body {
+    background:#0f172a;
+    color:#fff;
+    scroll-behavior:smooth;
+}
+
+
+nav h1 {font-size:18px;}
+nav ul {display:flex; gap:20px;}
+nav ul li {list-style:none;}
+nav ul li a {color:#fff; text-decoration:none;}
+
+.hero {
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.hero h2 {font-size:50px;}
+.hero p {color:#252627;}
+
+section {padding:80px 10%;}
+.section-title {text-align:center; margin-bottom:30px;}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card {
+    background:#1e293b;
+    padding:25px;
+    border-radius:10px;
+}
+
+.card:hover {
+    background:#334155;
+    transform:translateY(-5px);
+    transition:0.3s;
+}
+
+.table {
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table td {
+    padding:10px;
+    border-bottom:1px solid #334155;
+}
+
+footer {
+    text-align:center;
+    padding:30px;
+    background:#020617;
+    color:#94a3b8;
+}
+.project-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 30%; /* 3 kolom */
+    background: #1e293b;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.project-img img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+@media (max-width:768px){
+
+    .project-row {
+        flex-direction: column; /* TURUN KE BAWAH */
+        align-items: center;
+    }
+
+    .project-card {
+        width: 100%; /* FULL LEBAR */
+        max-width: 500px;
+    }
+
+}
+
+.about-container {
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.about-text p {
+    margin-bottom:15px;
+    line-height:1.7;
+    color:#cbd5e1;
+}
+
+.about-box {
+    background:#1e293b;
+    padding:25px;
+    border-radius:10px;
+}
+
+.about-box h3 {
+    margin-bottom:15px;
+}
+
+.about-box ul {
+    list-style:none;
+    line-height:1.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .about-container {
+        grid-template-columns:1fr;
+    }
+}
+.vm-container {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.vm-card {
+    background:#1e293b;
+    padding:30px;
+    border-radius:12px;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+/* AKSEN PREMIUM */
+.vm-card::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:5px;
+    height:100%;
+    background:#38bdf8;
+}
+
+/* HOVER EFFECT */
+.vm-card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* JUDUL */
+.vm-card h3 {
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+/* TEXT */
+.vm-card p,
+.vm-card ul {
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.vm-card ul {
+    padding-left:15px;
+}
+
+.vm-card ul li {
+    margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .vm-container {
+        grid-template-columns:1fr;
+    }
+}
+#proyek {
+    background:#020617;
+}
+
+/* ROW HORIZONTAL */
+.project-row {
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:nowrap;
+}
+
+/* CARD */
+.project-card {
+    width:320px;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+}
+
+/* IMAGE */
+.project-img {
+    position:relative;
+    overflow:hidden;
+}
+
+.project-img img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+/* OVERLAY */
+.project-overlay {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    transform:translateY(100%);
+    transition:0.4s;
+}
+
+.project-overlay h4 {
+    margin-bottom:5px;
+}
+
+.project-overlay p {
+    font-size:13px;
+    color:#cbd5e1;
+}
+
+/* HOVER EFFECT */
+.project-card:hover img {
+    transform:scale(1.1);
+}
+
+.project-card:hover .project-overlay {
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .project-row {
+        overflow-x:auto;
+    }
+}
+.bidang-container {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.bidang-card {
+    background:#1e293b;
+    padding:30px 25px;
+    border-radius:12px;
+    text-align:center;
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ICON */
+.bidang-card .icon {
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+/* TITLE */
+.bidang-card h3 {
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+/* TEXT */
+.bidang-card p {
+    font-size:14px;
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+/* HOVER EFFECT */
+.bidang-card:hover {
+    transform:translateY(-8px);
+    background:#334155;
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* GARIS AKSEN */
+.bidang-card::before {
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0%;
+    height:3px;
+    background:#38bdf8;
+    transition:0.4s;
+}
+
+.bidang-card:hover::before {
+    width:100%;
+}
+#kbli {
+    background:#020617;
+}
+
+/* GRID */
+.kbli-container {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.kbli-card {
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+    position:relative;
+    transition:0.3s;
+}
+
+/* KODE KBLI */
+.kbli-card .kode {
+    font-size:12px;
+    color:#38bdf8;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+/* TITLE */
+.kbli-card h3 {
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* TEXT */
+.kbli-card p {
+    font-size:14px;
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+/* HOVER */
+.kbli-card:hover {
+    transform:translateY(-8px);
+    background:#334155;
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* AKSEN GARIS */
+.kbli-card::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:0%;
+    height:3px;
+    background:#38bdf8;
+    transition:0.4s;
+}
+
+.kbli-card:hover::before {
+    width:100%;
+}
+#identitas {
+    background:#020617;
+}
+
+/* CONTAINER */
+.identitas-container {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* CARD */
+.identitas-card {
+    background:#1e293b;
+    padding:30px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+/* TITLE */
+.identitas-card h3 {
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+/* TABLE */
+.identitas-card table {
+    width:100%;
+    border-collapse:collapse;
+}
+
+.identitas-card td {
+    padding:10px 5px;
+    border-bottom:1px solid #334155;
+    font-size:14px;
+}
+
+/* KOLOM KIRI */
+.identitas-card td:first-child {
+    color:#94a3b8;
+    width:40%;
+}
+
+/* HOVER */
+.identitas-card:hover {
+    transform:translateY(-5px);
+    background:#334155;
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .identitas-container {
+        grid-template-columns:1fr;
+    }
+}
+#struktur {
+    background:#0f172a;
+    text-align:center;
+}
+
+/* CONTAINER */
+.struktur-container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* CARD */
+.struktur-card {
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+    width:220px;
+    transition:0.3s;
+}
+
+/* FOTO */
+.struktur-card img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+/* NAMA */
+.struktur-card h3 {
+    font-size:16px;
+}
+
+/* JABATAN */
+.struktur-card p {
+    font-size:13px;
+    color:#94a3b8;
+}
+
+/* HOVER */
+.struktur-card:hover {
+    transform:translateY(-5px);
+    background:#334155;
+}
+
+/* DIREKTUR LEBIH BESAR */
+.struktur-card.utama {
+    width:260px;
+}
+
+/* GARIS */
+.line {
+    width:2px;
+    height:40px;
+    background:#38bdf8;
+    margin:15px 0;
+}
+
+/* BAWAH */
+.struktur-bawah {
+    display:flex;
+    gap:40px;
+}
+#ruanglingkup {
+    background:#020617;
+    text-align:center;
+}
+
+/* GRID */
+.lingkup-container {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:40px;
+}
+
+/* CARD */
+.lingkup-card {
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+    transition:0.3s;
+    text-align:left;
+}
+
+/* TITLE */
+.lingkup-card h3 {
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+/* TEXT */
+.lingkup-card p {
+    font-size:13px;
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+/* HOVER */
+.lingkup-card:hover {
+    transform:translateY(-5px);
+    background:#334155;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+    .lingkup-container {
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .lingkup-container {
+        grid-template-columns:1fr;
+    }
+}
+#metode {
+    background:#0f172a;
+    text-align:center;
+}
+
+/* CONTAINER */
+.metode-container {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:40px;
+}
+
+/* ITEM */
+.metode-item {
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+    width:18%;
+    transition:0.3s;
+}
+
+/* BULATAN ANGKA */
+.circle {
+    width:40px;
+    height:40px;
+    background:#38bdf8;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    margin:0 auto 15px;
+}
+
+/* TITLE */
+.metode-item h3 {
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+/* TEXT */
+.metode-item p {
+    font-size:13px;
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+/* HOVER */
+.metode-item:hover {
+    transform:translateY(-5px);
+    background:#334155;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+    .metode-item {
+        width:45%;
+    }
+}
+
+@media(max-width:600px){
+    .metode-item {
+        width:100%;
+    }
+}
+#komitmen {
+    background:#020617;
+    text-align:center;
+}
+
+/* GRID */
+.komitmen-container {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:40px;
+}
+
+/* CARD */
+.komitmen-card {
+    background:#1e293b;
+    padding:30px 20px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+/* TITLE */
+.komitmen-card h3 {
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+/* TEXT */
+.komitmen-card p {
+    font-size:13px;
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+/* HOVER */
+.komitmen-card:hover {
+    transform:translateY(-5px);
+    background:#334155;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+    .komitmen-container {
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .komitmen-container {
+        grid-template-columns:1fr;
+    }
+}
+#kontak {
+    background:#0f172a;
+}
+
+/* CONTAINER */
+.kontak-container {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:40px;
+}
+
+/* INFO */
+.kontak-info {
+    background:#1e293b;
+    padding:30px;
+    border-radius:12px;
+}
+
+.kontak-info h3 {
+    margin-bottom:15px;
+}
+
+.kontak-info p {
+    font-size:14px;
+    color:#94a3b8;
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+/* BUTTON */
+.btn-kontak {
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 20px;
+    background:#38bdf8;
+    color:#000;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-kontak:hover {
+    background:#0ea5e9;
+}
+
+/* MAP */
+.kontak-map iframe {
+    border-radius:12px;
+    height:100%;
+    min-height:300px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .kontak-container {
+        grid-template-columns:1fr;
+    }
+}
+.hero-title img {
+    width: 90px;
+    height: auto;
+    margin-bottom: 10px;
+}
+/* NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#020617;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* lebih rapat & elegan */
+}
+
+.logo img {
+    width: 100px; /* ukuran ideal navbar */
+    height: auto;
+    object-fit: contain;
+}
+
+/* MENU */
+.nav-links {
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a {
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+}
+
+.hamburger span {
+    width:25px;
+    height:3px;
+    background:white;
+    margin:4px 0;
+    display:block;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .hamburger {
+        display:flex;
+    }
+
+    .nav-links {
+        position:absolute;
+        top:70px;
+        right:-100%;
+        background:#020617;
+        flex-direction:column;
+        width:200px;
+        text-align:center;
+        padding:20px;
+        transition:0.3s;
+    }
+
+    .nav-links.active {
+        right:0;
+    }
+}
+/* TEXT */
+h1 { font-size:clamp(24px, 5vw, 40px); }
+h2 { font-size:clamp(20px, 4vw, 30px); }
+
+/* SECTION */
+section {
+    padding:60px 20px;
+}
+
+/* GRID AUTO */
+@media(max-width:768px){
+    .lingkup-container,
+    .komitmen-container {
+        grid-template-columns:1fr !important;
+    }
+
+    .metode-item {
+        width:100% !important;
+    }
+}
+.navbar {
+    background:rgba(2,6,23,0.7);
+    backdrop-filter:blur(10px);
+}
+.nav-links a:hover {
+    color:#38bdf8;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+
+    /* NAV */
+    nav {
+        padding: 15px 20px;
+    }
+
+    /* HERO */
+    .hero {
+        height: 90vh;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-title img {
+    width: clamp(70px, 10vw, 130px);
+    height: auto;
+    object-fit: contain;
+}
+    
+
+    /* PROYEK GRID */
+    .project-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .project-card {
+        width: 90%;
+    }
+
+    /* CARD UMUM */
+    .card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* IDENTITAS */
+    .info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* TEXT BIAR GA KEPOTONG */
+    h1, h2, h3, p {
+        word-wrap: break-word;
+    }
+}
+.container {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+body {
+    background: linear-gradient(135deg, #020617, #0f172a, #020617);
+    color: white;
+}
+.hero {
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+.card:hover {
+    transform: translateY(-10px);
+    transition: 0.3s;
+}
+@media (max-width: 768px){
+    .card {
+        border-radius: 16px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+}
+nav {
+    background: rgba(2,6,23,0.6);
+    backdrop-filter: blur(10px);
+}
+.project-card img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    .project-card img {
+        height: 200px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <h1 class="logo">PT Niskala</h1>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#visi">Visi</a></li>
+        <li><a href="#bidang">Bidang</a></li>
+        <li><a href="#proyek">Proyek</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+    </ul>
+
+    <!-- HAMBURGER (HARUS DI DALAM NAV) -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</nav>
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-title">
+      <img src="logo.png" alt="Logo">
+      <h1>PT Niskala Bina Utama</h1>
+    </div>
+
+    <p>Perusahaan Profesional di Bidang Konstruksi dan Jasa</p>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+<h2 class="section-title">Profil Perusahaan</h2>
+
+<div class="about-container">
+
+  <div class="about-text">
+    <p>
+      <b>PT. Niskala Bina Utama</b> merupakan perusahaan yang bergerak di bidang jasa konstruksi umum (All Construction).
+      Perusahaan ini didirikan untuk mendukung pembangunan infrastruktur, gedung, serta berbagai proyek konstruksi lainnya
+      dengan standar profesional dan kualitas terbaik.
+    </p>
+
+    <p>
+      Dengan komitmen terhadap mutu, ketepatan waktu, dan keselamatan kerja (K3), PT. Niskala Bina Utama hadir sebagai
+      mitra strategis bagi instansi pemerintah, BUMN, maupun sektor swasta dalam melaksanakan proyek skala kecil,
+      menengah, hingga besar.
+    </p>
+
+    <p>
+      Perusahaan menerapkan sistem manajemen kerja yang terencana, pengawasan mutu yang ketat,
+      serta penerapan standar Keselamatan dan Kesehatan Kerja (K3) dalam setiap pelaksanaan proyek.
+    </p>
+  </div>
+
+  <div class="about-box">
+    <h3>Keunggulan Kami</h3>
+    <ul>
+      <li>✔ Tenaga kerja profesional & berpengalaman</li>
+      <li>✔ Tepat waktu dalam penyelesaian proyek</li>
+      <li>✔ Standar mutu tinggi</li>
+      <li>✔ Sistem kerja transparan & akuntabel</li>
+      <li>✔ Mengutamakan keselamatan kerja (K3)</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- VISI MISI -->
+<section id="visi">
+<h2 class="section-title">Visi & Misi</h2>
+
+<div class="vm-container">
+
+  <!-- VISI -->
+  <div class="vm-card visi">
+    <h3>Visi</h3>
+    <p>
+      Menjadi perusahaan konstruksi yang profesional, terpercaya, dan berdaya saing tinggi
+      dalam mendukung pembangunan infrastruktur nasional.
+    </p>
+  </div>
+
+  <!-- MISI -->
+  <div class="vm-card misi">
+    <h3>Misi</h3>
+    <ul>
+      <li>Memberikan layanan konstruksi berkualitas sesuai standar teknis</li>
+      <li>Menyelesaikan proyek tepat waktu dan sesuai anggaran</li>
+      <li>Menerapkan sistem manajemen transparan dan akuntabel</li>
+      <li>Mengutamakan keselamatan kerja (K3)</li>
+      <li>Membangun kerja sama jangka panjang</li>
+    </ul>
+  </div>
+
+</div>
+
+</section>
+
+<!-- BIDANG -->
+<section id="bidang">
+<h2 class="section-title">Bidang Usaha</h2>
+
+<div class="bidang-container">
+
+  <div class="bidang-card">
+    <div class="icon">🏢</div>
+    <h3>Konstruksi Bangunan</h3>
+    <p>Pembangunan gedung hunian, perkantoran, serta fasilitas umum dengan standar kualitas tinggi.</p>
+  </div>
+
+  <div class="bidang-card">
+    <div class="icon">🛣️</div>
+    <h3>Konstruksi Sipil</h3>
+    <p>Pengerjaan jalan, jembatan, serta infrastruktur pendukung lainnya secara profesional.</p>
+  </div>
+
+  <div class="bidang-card">
+    <div class="icon">🏗️</div>
+    <h3>Konstruksi Khusus</h3>
+    <p>Pekerjaan struktur khusus dan fasilitas penunjang dengan metode teknis modern.</p>
+  </div>
+
+  <div class="bidang-card">
+    <div class="icon">🚜</div>
+    <h3>Pekerjaan Persiapan</h3>
+    <p>Penyiapan lahan seperti land clearing, cut & fill, dan pematangan area proyek.</p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- KBLI -->
+<section id="kbli">
+<h2 class="section-title">Klasifikasi Usaha (KBLI)</h2>
+
+<div class="kbli-container">
+
+  <div class="kbli-card">
+    <span class="kode">42101</span>
+    <h3>Konstruksi Jalan</h3>
+    <p>Pembangunan dan peningkatan jalan serta infrastruktur pendukung.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">42201</span>
+    <h3>Konstruksi Jembatan</h3>
+    <p>Pekerjaan pembangunan jembatan dengan struktur baja dan beton.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">41011</span>
+    <h3>Gedung Hunian</h3>
+    <p>Pembangunan rumah tinggal dan bangunan residensial.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">41012</span>
+    <h3>Gedung Perkantoran</h3>
+    <p>Pembangunan gedung kantor dan fasilitas bisnis.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">41015</span>
+    <h3>Gedung Kesehatan</h3>
+    <p>Pembangunan rumah sakit, klinik, dan fasilitas kesehatan.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">41016</span>
+    <h3>Gedung Pendidikan</h3>
+    <p>Pembangunan sekolah dan fasilitas pendidikan.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">41019</span>
+    <h3>Gedung Lainnya</h3>
+    <p>Pembangunan berbagai jenis gedung lainnya.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">42912</span>
+    <h3>Konstruksi Sipil Lainnya</h3>
+    <p>Pekerjaan konstruksi sipil tambahan di berbagai sektor.</p>
+  </div>
+
+  <div class="kbli-card">
+    <span class="kode">43120</span>
+    <h3>Penyiapan Lahan</h3>
+    <p>Land clearing, cut & fill, serta pematangan lahan proyek.</p>
+  </div>
+
+</div>
+
+</section>
+<!-- IDENTITAS -->
+<section id="identitas">
+<h2 class="section-title">Identitas Perusahaan</h2>
+
+<div class="identitas-container">
+
+  <div class="identitas-card">
+    <h3>Informasi Umum</h3>
+    <table>
+      <tr>
+        <td>Nama Perusahaan</td>
+        <td>PT Niskala Bina Utama</td>
+      </tr>
+      <tr>
+        <td>Bentuk Usaha</td>
+        <td>Perseroan Terbatas (PT)</td>
+      </tr>
+      <tr>
+        <td>Alamat</td>
+        <td>Jl. Adiningrat No. 9 RT 02 / RW 09, Kel. Adirsa Timur, Kec. Karawang Timur, Jawa Barat</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>ptniskalabinautama@gmail.com</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="identitas-card">
+    <h3>Struktur Modal</h3>
+    <table>
+      <tr>
+        <td>Modal Dasar</td>
+        <td>Rp 1.000.000.000</td>
+      </tr>
+      <tr>
+        <td>Direktur</td>
+        <td>60%</td>
+      </tr>
+      <tr>
+        <td>Wakil Direktur</td>
+        <td>40%</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+</section>
+
+<!-- STRUKTUR -->
+<section id="struktur">
+<h2 class="section-title">Struktur Perusahaan</h2>
+
+<div class="struktur-container">
+
+  <!-- DIREKTUR -->
+  <div class="struktur-card utama">
+    <img src="icon.jpg">
+    <h3>Yuda Lesmana</h3>
+    <p>Direktur</p>
+  </div>
+
+  <!-- GARIS -->
+  <div class="line"></div>
+
+  <!-- BAWAH -->
+  <div class="struktur-bawah">
+    <div class="struktur-card">
+      <img src="icon.jpg">
+      <h3>Muhammad Nur Nikmatulloh</h3>
+      <p>Wakil Direktur</p>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<!-- PROYEK -->
+<section id="proyek">
+<h2 class="section-title">Proyek Kami</h2>
+
+<div class="project-row">
+
+  <div class="project-card">
+    <div class="project-img">
+      <img src="jalan.jpg">
+      <div class="project-overlay">
+        <h4>Pembangunan Jalan</h4>
+        <p>Karawang</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-img">
+      <img src="ruko.jpg">
+      <div class="project-overlay">
+        <h4>Gedung Ruko 3 Lantai</h4>
+        <p>Karawang</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-img">
+      <img src="beton (1).jpg">
+      <div class="project-overlay">
+        <h4>Peningkatan Jalan Beton</h4>
+        <p>Karawang Timur</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+<!-- RUANG LINGKUP -->
+<section id="ruanglingkup">
+<h2 class="section-title">Ruang Lingkup Pekerjaan</h2>
+
+<div class="lingkup-container">
+
+  <div class="lingkup-card">
+    <h3>Perencanaan & Konsultasi</h3>
+    <p>
+      Penyusunan konsep, desain teknis, hingga konsultasi proyek konstruksi dan pengembangan usaha secara profesional.
+    </p>
+  </div>
+
+  <div class="lingkup-card">
+    <h3>Pelaksanaan Konstruksi</h3>
+    <p>
+      Pelaksanaan pembangunan meliputi gedung, infrastruktur, serta pekerjaan sipil lainnya dengan standar mutu tinggi.
+    </p>
+  </div>
+
+  <div class="lingkup-card">
+    <h3>Pengadaan & Distribusi</h3>
+    <p>
+      Penyediaan dan distribusi material, alat, serta kebutuhan proyek sesuai spesifikasi dan kebutuhan klien.
+    </p>
+  </div>
+
+  <div class="lingkup-card">
+    <h3>Pengawasan Proyek</h3>
+    <p>
+      Monitoring dan pengawasan pelaksanaan proyek untuk memastikan kualitas, waktu, dan biaya sesuai rencana.
+    </p>
+  </div>
+
+</div>
+
+</section>
+<!-- METODE -->
+<section id="metode">
+<h2 class="section-title">Metode Pelaksanaan</h2>
+
+<div class="metode-container">
+
+  <div class="metode-item">
+    <div class="circle">1</div>
+    <h3>Perencanaan</h3>
+    <p>Penyusunan konsep, analisa kebutuhan, serta perencanaan teknis proyek secara menyeluruh.</p>
+  </div>
+
+  <div class="metode-item">
+    <div class="circle">2</div>
+    <h3>Persiapan</h3>
+    <p>Pengadaan material, tenaga kerja, serta peralatan sesuai dengan spesifikasi proyek.</p>
+  </div>
+
+  <div class="metode-item">
+    <div class="circle">3</div>
+    <h3>Pelaksanaan</h3>
+    <p>Proses pengerjaan proyek dilakukan sesuai standar operasional dan timeline yang telah ditetapkan.</p>
+  </div>
+
+  <div class="metode-item">
+    <div class="circle">4</div>
+    <h3>Pengawasan</h3>
+    <p>Monitoring kualitas pekerjaan, keselamatan kerja, serta kesesuaian dengan rencana proyek.</p>
+  </div>
+
+  <div class="metode-item">
+    <div class="circle">5</div>
+    <h3>Penyelesaian</h3>
+    <p>Finishing pekerjaan, evaluasi hasil, serta serah terima kepada klien secara profesional.</p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- KOMITMEN -->
+<section id="komitmen">
+<h2 class="section-title">Komitmen Perusahaan</h2>
+
+<div class="komitmen-container">
+
+  <div class="komitmen-card">
+    <h3>Kualitas Terbaik</h3>
+    <p>
+      Memberikan hasil pekerjaan dengan standar kualitas tinggi sesuai spesifikasi dan kebutuhan klien.
+    </p>
+  </div>
+
+  <div class="komitmen-card">
+    <h3>Tepat Waktu</h3>
+    <p>
+      Menyelesaikan setiap proyek sesuai dengan jadwal yang telah disepakati secara profesional.
+    </p>
+  </div>
+
+  <div class="komitmen-card">
+    <h3>Integritas</h3>
+    <p>
+      Menjunjung tinggi kejujuran, transparansi, dan tanggung jawab dalam setiap proses kerja.
+    </p>
+  </div>
+
+  <div class="komitmen-card">
+    <h3>Kepuasan Klien</h3>
+    <p>
+      Mengutamakan kepuasan pelanggan sebagai prioritas utama dalam setiap layanan yang diberikan.
+    </p>
+  </div>
+
+</div>
+
+</section>
+<section class="fade-up"></section>
+<!-- KONTAK -->
+<section id="kontak">
+<h2 class="section-title">Hubungi Kami</h2>
+
+<div class="kontak-container">
+
+  <!-- INFO KONTAK -->
+  <div class="kontak-info">
+    <h3>PT Niskala Bina Utama</h3>
+
+    <p><strong>Alamat:</strong><br>
+    Jl. Adiningrat No. 9 RT 02 / RW 09,<br>
+    Kel. Adirsa Timur, Kec. Karawang Timur,<br>
+    Jawa Barat</p>
+
+    <p><strong>Email:</strong><br>
+    ptniskalabinautama@gmail.com</p>
+
+    <p><strong>Telepon:</strong><br>
+    082125729972</p>
+
+    <a href="https://wa.me/6282125729972" class="btn-kontak">
+      💬 Konsultasi via WhatsApp
+    </a>
+  </div>
+
+  <!-- MAPS -->
+  <div class="kontak-map">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3123.9691137496866!2d107.31911087499108!3d-6.311781393677501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTgnNDIuNCJTIDEwN8KwMTknMTguMSJF!5e1!3m2!1sid!2sid!4v1775573193192!5m2!1sid!2sid"
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
+
+</div>
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+</script>
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+</script>
+</section>
+
+<footer>
+© 2026 PT Niskala Bina Utama
+</footer>
+
+</body>
+</html>
